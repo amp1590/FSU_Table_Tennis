@@ -1,0 +1,1 @@
+[07-Jul-2016 22:19:45 CST6CDT] PHP Warning:  mysqli_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'aquigaza_fsutt'@'localhost' (using password: YES) in /home/aquigaza/public_html/FSUTT_Ratings/PHP/DBadmin.php on line 66
