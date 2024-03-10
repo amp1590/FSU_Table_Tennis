@@ -2,7 +2,7 @@
 //This file is used to connect to the database
 
 ini_set('display_errors', 1);
-error_reporting(E_ERROR|E_WARNING);
+error_reporting(E_ERROR);
 
 // Runs the specified query, returns the results on ok, false on error
 function runQuery($query)
@@ -27,13 +27,15 @@ function runQuery($query)
 }
 
 //Gets the names of the fields in the query result and puts them in an array
-function mysqli_field_names( $result )
-{   
+function mysqli_field_names($result)
+{
+    $numfields = mysqli_num_fields($result); // Gets the number of fields in the query result
+    $names = array();
 
-    $numfields = mysqli_num_fields( $result );//Gets the number of fields in the query result
-
-    for ( $i = 0; $i < $numfields; $i++ )//Stores the names of the fields in the array $names
-        $names[] = mysqli_field_name( $result, $i );
+    for ($i = 0; $i < $numfields; $i++) { // Stores the names of the fields in the array $names
+        $fieldinfo = $result->fetch_field_direct($i);
+        $names[] = $fieldinfo->name;
+    }
 
     return $names;
 }
@@ -54,7 +56,7 @@ function connectDB()
 
     $user = "aquigaza_fsuttra";
     $pw = "4Y=.aP8JZgdd78=S";
-    $database = "aquigaza_fsutt_local";
+    $database = "aquigaza_fsutt";
     $server="localhost"; // This is for the server
 //    $server="aquigaza.com";
 
@@ -68,7 +70,7 @@ function connectDB()
     if(!mysqli_select_db($con,$database))//Selects the required database
     {
         $s=mysqli_error($con);
-        echo("Could not select database ${database}: ${s}");
+        echo("Could not select database " .$database. ":" . $s);
         return false;
     }
 
@@ -79,10 +81,7 @@ function connectDB()
 // then the ints are sent with '' so you get an error from MySQL
 function escapeString($str)
 {
-	$con = connectDB();
-    if (get_magic_quotes_gpc()==1)
-        $str = stripslashes($str);
-
-    return mysqli_real_escape_string($con,$str);
+    $con = connectDB();
+    return mysqli_real_escape_string($con, $str);
 }
 ?>
