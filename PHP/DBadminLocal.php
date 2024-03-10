@@ -59,7 +59,7 @@ function connectDB()
 
     $user = "aquigaza_fsuttra";
     $pw = "4Y=.aP8JZgdd78=S";
-    $database = "aquigaza_fsutt_local";
+    $database = "aquigaza_fsutt";
     $server="181.224.136.219";
     //$server="aquigaza.com";
 

@@ -3,7 +3,7 @@
  * Gets all the players
  */
 function getAllPlayers(){
-	$query = "SELECT * FROM aquigaza_fsutt_local.players ORDER by rating DESC";
+	$query = "SELECT * FROM aquigaza_fsutt.players ORDER by rating DESC";
     $resource = runQuery($query);
 	return ozRunQuery($resource);
 }
@@ -11,7 +11,7 @@ function getAllPlayers(){
  * Gets all the players that are training today
  */
 function getTrainingPlayers($training){
-	$query = "SELECT name FROM aquigaza_fsutt_local.players "
+	$query = "SELECT name FROM aquigaza_fsutt.players "
 			. "WHERE training = ".$training." ORDER by rating DESC";
     $resource = runQuery($query);
 	return ozRunQuery($resource);
@@ -21,13 +21,13 @@ function getTrainingPlayers($training){
  * Gets all the players order by an specific field
  */
 function getAllPlayersOrderBy($field){
-	$query = "SELECT * FROM aquigaza_fsutt_local.players ORDER by ".$field;
+	$query = "SELECT * FROM aquigaza_fsutt.players ORDER by ".$field;
     $resource = runQuery($query);
 	return ozRunQuery($resource);
 }
 
 function getRatingHistory($id){
-	$query = "SELECT * FROM aquigaza_fsutt_local.games WHERE ".
+	$query = "SELECT * FROM aquigaza_fsutt.games WHERE ".
 					" fk_won = ".$id." OR fk_lost = ".$id." ORDER BY match_date";
     $resource = runQuery($query);
 	return ozRunQuery($resource);
@@ -38,7 +38,7 @@ function getRatingHistory($id){
  * Gets specific player
  */
 function getPlayer($idplay){
-	$query = "SELECT * FROM aquigaza_fsutt_local.players WHERE id_player=".escapeString($idplay);
+	$query = "SELECT * FROM aquigaza_fsutt.players WHERE id_player=".escapeString($idplay);
     $resource = runQuery($query);
 	return ozRunQuery($resource);
 }
@@ -47,14 +47,14 @@ function getPlayer($idplay){
  * Gets the players from specific group
  */
 function getPlayersFromClub($idclub){
-	$query = "SELECT * FROM aquigaza_fsutt_local.players WHERE fk_club=".escapeString($idclub)." ORDER by rating DESC";
+	$query = "SELECT * FROM aquigaza_fsutt.players WHERE fk_club=".escapeString($idclub)." ORDER by rating DESC";
     $resource = runQuery($query);
 	return ozRunQuery($resource);
 }
 
 //Adds a new player 
 function addPlayer($name, $last, $rating, $usatt, $idclub, $date, $email){
-    $query = "INSERT INTO aquigaza_fsutt_local.players
+    $query = "INSERT INTO aquigaza_fsutt.players
 	(`name`, `last`, `rating`, `usatt_rat`, `fk_club`, `startdate`, `email`)
 	VALUES	('".escapeString($name)."','".escapeString($last)."','".escapeString($rating)."',".escapeString($usatt).
 			",".escapeString($idclub).",'".escapeString($date)."','".escapeString($email)."')";
@@ -62,7 +62,7 @@ function addPlayer($name, $last, $rating, $usatt, $idclub, $date, $email){
 }
 
 function updatePlayer($idPlayer, $name, $last, $rating, $usatt, $club, $start,$email){
-    $query = "UPDATE aquigaza_fsutt_local.players SET
+    $query = "UPDATE aquigaza_fsutt.players SET
         name='".escapeString($name)."', 
         last='".escapeString($last)."',
         rating='".escapeString($rating)."',
@@ -79,7 +79,7 @@ function updatePlayer($idPlayer, $name, $last, $rating, $usatt, $club, $start,$e
 }
 
 function updateRating($id_play, $new_rat){
-    $query = "UPDATE aquigaza_fsutt_local.players SET
+    $query = "UPDATE aquigaza_fsutt.players SET
         rating='".escapeString($new_rat)."' WHERE id_player=".escapeString($id_play);
 
     $resource = runQuery($query);
@@ -88,7 +88,7 @@ function updateRating($id_play, $new_rat){
 
 //Deletes a player
 function deletePlayer($idPlayer){
-    $query = "DELETE FROM aquigaza_fsutt_local.players WHERE id_player=".escapeString($idPlayer);
+    $query = "DELETE FROM aquigaza_fsutt.players WHERE id_player=".escapeString($idPlayer);
     $resource = runQuery($query);
 }
 ?>
