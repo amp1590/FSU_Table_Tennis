@@ -1,4 +1,4 @@
-<p style="background-color: antiquewhite">Club:
+<p style="background-color: antiquewhite; width: 70px">Club:
 <select id="clubs" onchange="selectClub();">
 	<option value="All" selected> All </option>
 	<?php

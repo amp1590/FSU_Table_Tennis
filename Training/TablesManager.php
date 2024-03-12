@@ -8,14 +8,14 @@ require_once(__ROOT__."/Players/PlayersSQL.php");
 
 $action = $_REQUEST["action"]; 
 function updateIsTraining($idPlayer, $isTraining){
-    $query = "UPDATE aquigaza_fsutt.players SET
+    $query = "UPDATE $database.players SET
 		training='".escapeString($isTraining)."'";
 
 	$query = $query." WHERE id_player=".escapeString($idPlayer);
     $resource = runQuery($query);
 }
 function clearTraining(){
-    $query = "UPDATE aquigaza_fsutt.players SET
+    $query = "UPDATE $database.players SET
 		training='0'";
     $resource = runQuery($query);
 }

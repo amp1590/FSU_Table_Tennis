@@ -13,7 +13,7 @@ include("Header.php");
 		id_lost= $('#loser').val();
 
 		if( id_won == id_lost){
-			alert("The players most be different");
+			alert("The players must be different");
 		}else{
 			var url = fileName+"?action=add"+
 				"&id_won="+id_won+

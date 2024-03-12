@@ -20,7 +20,7 @@ function getAllMatches(){
 
 //Gets the matches for an specific player
 function getMatches($idplayer){
-    $query = "SELECT * FROM aquigaza_fsutt.games 
+    $query = "SELECT * FROM $database.games 
                 WHERE fk_won = ".escapeString($idplayer)." OR 
 						fk_lost= ".escapeString($idplayer);
     $resource = runQuery($query);
@@ -29,7 +29,7 @@ function getMatches($idplayer){
 
 //Adds a new match 
 function addMatch($idWon, $idLost, $wonOldRat, $wonNewRat, $lostOldRat, $lostNewRat, $match_date){
-    $query = "INSERT INTO aquigaza_fsutt.games 
+    $query = "INSERT INTO $database.games 
 		(`fk_won`, `fk_lost`, `won_old`, `won_new`, `lost_old`, `lost_new`, `match_date`)
 		VALUES (".escapeString($idWon).",".escapeString($idLost).",".escapeString($wonOldRat).
 			",".escapeString($wonNewRat).",".escapeString($lostOldRat).",".escapeString($lostNewRat).",'".escapeString($match_date)."')";
@@ -38,7 +38,7 @@ function addMatch($idWon, $idLost, $wonOldRat, $wonNewRat, $lostOldRat, $lostNew
 
 //Gets the matches for an specific player
 function deleteMatch($id_match){
-    $query = "DELETE FROM aquigaza_fsutt.games WHERE id_games=".escapeString($id_match);
+    $query = "DELETE FROM $database.games WHERE id_games=".escapeString($id_match);
     $resource = runQuery($query);
 }
 

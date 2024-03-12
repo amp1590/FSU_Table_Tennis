@@ -54,8 +54,8 @@ function getRowsFromResource($resource){
 function connectDB()
 {
 
-    $user = "aquigaza_fsuttra";
-    $pw = "4Y=.aP8JZgdd78=S";
+    $user = "root";
+    $pw = "";
     $database = "aquigaza_fsutt";
     $server="localhost"; // This is for the server
 //    $server="aquigaza.com";

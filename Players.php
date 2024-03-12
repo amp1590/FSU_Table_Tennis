@@ -7,7 +7,7 @@ include("Players/PlayersSQL.php");
 ?>
 
 <script type="text/javascript">
-	var fileName = "Players/PlayersManager.php";// Sets tde file name to redirect tde AJAX calls
+	var fileName = "Players/PlayersManager.php";// Sets tHe file name to redirect tde AJAX calls
 
 	$("#tabplayers").addClass("active");
 	$("#tabmatches").removeClass("active");//Change tab active menu
@@ -81,7 +81,7 @@ include("Players/PlayersSQL.php");
 					<label>Last name</label> <input  class="form-control" type="text" id="last_name" />
 					<label>Club Rating</label> <input  class="form-control" type="text" id="club_rat" />
 					<label>Email</label><input  class="form-control" type="text" id="email" />
-					<label>USATT Rating</label><input  class="form-control" type="text" id="usatt_rat" />
+					<label>USATT Rating</label><input  class="form-control" type="text" id="usatt_rat" value="0" />
 					<label>Club</label> <select  class="form-control" id="clubs">
 										<?php
 										$clubs = getClubs(); //Obtains all the clubs
