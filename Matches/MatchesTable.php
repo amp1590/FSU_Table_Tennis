@@ -13,30 +13,34 @@
 </select>
 </p>
 
+
 <table>
-	<tr style="background-color: antiquewhite"><td>Winner</td><td>Looser</td></tr>
-	<tr>
-		<td> <select id="winner">
-				<?php
-				foreach ($playersWin as $row) {
-					echo "<option value=", $row[0], " selected>", $row[1], ", ", $row[2], ". ", $row[3], "</option>\n";
+		<input type="hidden" id="master" value="<?=$master?>" />
+		<?php
+			echo "<tr style='background-color: antiquewhite'><td>Winner</td><td>Looser</td></tr>";
+			echo "<tr>";
+				echo "<td> <select id='winner'>";
+					foreach ($playersWin as $row) {
+						echo "<option value=", $row[0], " selected>", $row[1], ", ", $row[2], ". ", $row[3], "</option>\n";
+					}
+				echo "</select> </td>";
+				echo "<td> <select id='loser'>";
+					foreach ($playersLos as $row) {
+						echo "<option value=", $row[0], " selected>", $row[1], ", ", $row[2], ". ", $row[3], "</option>\n";
+					}
+				echo "</select> </td>";
+				if($allowAdd){
+					echo "<td class='$class' style='text-align: center;width: 70px'>
+				     <input type='button' value='Add Match' onclick='addMatch();'/></td></tr>\n";
 				}
-				?>
-			</select> </td>
-		<td> <select id="loser">
-				<?php
-				foreach ($playersLos as $row) {
-					echo "<option value=", $row[0], " selected>", $row[1], ", ", $row[2], ". ", $row[3], "</option>\n";
-				}
-				?>
-			</select> </td>
-		<td><input type="button" value="Add Match" onclick="addMatch();" /></td>
-	</tr>
-	<!--<tr>
-		<td><input id="win_text" type="text" onchage="updateWin();"/></td>
-		<td><input id="los_text" type="text" onchage="updateLos();"/></td>
-	</tr>-->
+			//<!--<tr>
+			//	<td><input id="win_text" type="text" onchage="updateWin();"/></td>
+			//	<td><input id="los_text" type="text" onchage="updateLos();"/></td>
+			//</tr>-->
+		?>
+
 </table>
+
 <table class="mainTable" border="1">
 	<tr>
 		<th>Winner</th>
@@ -69,7 +73,8 @@
 			echo "<td class='$class'>" . $row[9] . "</td>\n";
 
 			if ($allowDelete) {
-				echo "<td  class='$class' style='text-align: center;width: 70px'><input type='button' value='Delete' onclick='deleteField(", $row[0], ")'/></td></tr>\n";
+				echo "<td  class='$class' style='text-align: center;width: 70px'>
+				<input type='button' value='Delete' onclick='deleteField(",$row[0],")'/></td></tr>\n";
 			}
 		}
 	}

@@ -62,13 +62,16 @@ if(empty($sel_club)){
 if($master == "yoda"){
 	$allowEdit = true;
 	$allowDelete = true;
+	$allowAdd = true;
 }elseif($master == "vader"){
 	$allowEdit = true;
 	$allowDelete = false;
+	$allowAdd = true;
 }else{
 	$master = "none";
 	$allowEdit = false;
 	$allowDelete = false;
+	$allowAdd = false;
 }
 	
 

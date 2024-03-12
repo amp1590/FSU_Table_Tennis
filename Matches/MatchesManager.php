@@ -10,6 +10,7 @@ require_once("MatchesSQL.php");
 
 $action = $_REQUEST["action"]; 
 $sel_club = $_REQUEST["sel_club"]; 
+$master = $_REQUEST["master"]; 
 
 if($action == 'edit'){
 	$id = $_REQUEST["id"]; 
@@ -23,6 +24,7 @@ if( ($action == 'add') || ($action == 'update') ){
 	$id_lost = $_REQUEST["id_lost"];
 }
 
+//Algorithm for Rating calculation
 if($action == 'add'){    
 
 	$play_won = getPlayer($id_won);
@@ -39,13 +41,13 @@ if($action == 'add'){
 		$add_rat = $rat_row[0][4];
 	}
 
-	$old_won = $play_won[0][3];
-	$old_lost = $play_lost[0][3];
-	$new_won = $old_won + $add_rat;
-	$new_lost = $old_lost - $add_rat;
+	$winner_rating = $play_won[0][3];
+	$loser_rating = $play_lost[0][3];
+	$new_won = $winner_rating + $add_rat;
+	$new_lost = $loser_rating - $add_rat;
 	$date = date("Y-m-d");
 
-	addMatch($id_won , $id_lost, $old_won, $new_won, $old_lost, $new_lost, $date);
+	addMatch($id_won , $id_lost, $winner_rating, $new_won, $loser_rating, $new_lost, $date);
 
 	//Updating players ratings
 	updateRating($id_won, $new_won);
@@ -88,6 +90,23 @@ if(!isset($sel_club)){
 } else {
 	$matches = getAllMatchesFromClub($sel_club);
 }
+
+//To provide the admin access for Matches page
+if($master == "yoda"){
+	$allowEdit = true;
+	$allowDelete = true;
+	$allowAdd = true;
+}elseif($master == "vader"){
+	$allowEdit = true;
+	$allowDelete = false;
+	$allowAdd = false;
+}else{
+	$master = "none";
+	$allowEdit = false;
+	$allowDelete = false;
+	$allowAdd = false;
+}
+	
 
 include("MatchesTable.php"); 
 
