@@ -68,6 +68,7 @@ include("Players/PlayersSQL.php");
 </script>
 	
 <div id="main_div_players" class="container">
+	<input type="hidden" id="master" value="<?=$master?>" />
 		<div class="row">
 			<div class="col-md-12 " id="main_table_div">
 				<?php include("Players/PlayersManager.php"); ?>
@@ -96,7 +97,7 @@ include("Players/PlayersSQL.php");
 						echo "<input type='button' value='Add new player' onclick='addField();'/></td></tr>\n";
 					}
 					else{
-						echo "<p style = 'color: white'> Note: Only an admin can add a new player.</p>";
+						echo "<p style = 'color: white'> Note: Only an admin can add new players.</p>";
 					}
 					?>
 				

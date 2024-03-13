@@ -33,6 +33,9 @@
 					echo "<td class='$class' style='text-align: center;width: 70px'>
 				     <input type='button' value='Add Match' onclick='addMatch();'/></td></tr>\n";
 				}
+				else{
+					echo "<p style = 'color: white'> Note: Only an admin can add nmatches.</p>";
+				}
 			//<!--<tr>
 			//	<td><input id="win_text" type="text" onchage="updateWin();"/></td>
 			//	<td><input id="los_text" type="text" onchage="updateLos();"/></td>

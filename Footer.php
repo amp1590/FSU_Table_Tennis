@@ -42,7 +42,6 @@
 			
 			<p style="letter-spacing:0.1em;font-family:'Proxima Nova', sans-serif;color:#FFFFFF;font-size:12px;">COPYRIGHT 2024 FSU Table Tennis Club</p>
 			
-			<p style="letter-spacing:0.1em;margin-top:2%;font-family:'Proxima Nova', sans-serif;color:#FFFFFF;font-size:12px;"> <a style="color:white" href="https://nolecentral.dsa.fsu.edu/organization/tabletennis"> FSU Table Tennis </a></p>
 
 		</div>
 	</body>
