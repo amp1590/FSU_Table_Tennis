@@ -34,7 +34,7 @@
 				     <input type='button' value='Add Match' onclick='addMatch();'/></td></tr>\n";
 				}
 				else{
-					echo "<p style = 'color: white'> Note: Only an admin can add nmatches.</p>";
+					echo "<p style = 'color: white'> Note: Only an admin can add new matches.</p>";
 				}
 			//<!--<tr>
 			//	<td><input id="win_text" type="text" onchage="updateWin();"/></td>
