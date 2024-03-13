@@ -68,32 +68,43 @@ include("Players/PlayersSQL.php");
 </script>
 	
 <div id="main_div_players" class="container">
-	<div class="row">
-		<div class="col-md-12 " id="main_table_div">
-			<?php include("Players/PlayersManager.php"); ?>
-		</div>
-			
-		<div class="col-md-4" id="new_player">
-			<p class="mainTitle"> New Player</p>
-			<form role="form">
-				<div class="form-group" style="background-color: antiquewhite">
-					<label>Name</label> <input class="form-control" type="text" id="name" />
-					<label>Last name</label> <input  class="form-control" type="text" id="last_name" />
-					<label>Club Rating</label> <input  class="form-control" type="text" id="club_rat" />
-					<label>Email</label><input  class="form-control" type="text" id="email" />
-					<label>USATT Rating</label><input  class="form-control" type="text" id="usatt_rat" value="0" />
-					<label>Club</label> <select  class="form-control" id="clubs">
-										<?php
-										$clubs = getClubs(); //Obtains all the clubs
-										foreach ($clubs as $row) {
-											echo "<option value=", $row[0], " selected>", $row[1], "</option>"; //Shows the 2 field of the dependency (Name)
-										}
-										?> </select>
-				</div>
-				<input type="button" value="Add new player" onclick="addField();" />
-			</form>
-			<div id="result"></div>
-		</div>
+	<input type="hidden" id="master" value="<?=$master?>" />
+		<div class="row">
+			<div class="col-md-12 " id="main_table_div">
+				<?php include("Players/PlayersManager.php"); ?>
+			</div>
+				
+			<div class="col-md-4" id="new_player">
+				<p class="mainTitle"> New Player</p>
+				<form role="form">
+					<div class="form-group" style="background-color: antiquewhite">
+						<label>Name</label> <input class="form-control" type="text" id="name" />
+						<label>Last name</label> <input  class="form-control" type="text" id="last_name" />
+						<label>Club Rating</label> <input  class="form-control" type="text" id="club_rat" />
+						<label>Email</label><input  class="form-control" type="text" id="email" />
+						<label>USATT Rating</label><input  class="form-control" type="text" id="usatt_rat" value="0" />
+						<label>Club</label> <select  class="form-control" id="clubs">
+											<?php
+											$clubs = getClubs(); //Obtains all the clubs
+											foreach ($clubs as $row) {
+												echo "<option value=", $row[0], " selected>", $row[1], "</option>"; //Shows the 2 field of the dependency (Name)
+											}
+											?> </select>
+					</div>
+
+					<?php
+					if($allowAdd){
+						echo "<input type='button' value='Add new player' onclick='addField();'/></td></tr>\n";
+					}
+					else{
+						echo "<p style = 'color: white'> Note: Only an admin can add a new player.</p>";
+					}
+					?>
+				
+					<!--<input type="button" value="Add new player" onclick="addField();" /> -->
+				</form>
+				<div id="result"></div>
+			</div>
 	</div><!-- row -->
 		
 </div>

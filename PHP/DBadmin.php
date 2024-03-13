@@ -53,12 +53,17 @@ function getRowsFromResource($resource){
 // Connects to a database
 function connectDB()
 {
-
+//For local pc server
     $user = "root";
     $pw = "";
     $database = "aquigaza_fsutt";
     $server="localhost"; // This is for the server
-//    $server="aquigaza.com";
+    
+    //For Sitegroiound server:
+//    $user = "aquigaza_fsutt";
+//    $pw = "fsuTableTennis1995";
+//    $database = "db3fgdg5s5wgh9";
+// 	  $server = "localhost";
 
 	$con = mysqli_connect($server,$user,$pw,$database);
 
