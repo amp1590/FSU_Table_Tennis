@@ -13,7 +13,7 @@
 </select>
 </p>
 
-
+<h3 class="subTitle2" style="color: white; font: 100000px"> Add Matches</h3>
 <table>
 		<input type="hidden" id="master" value="<?=$master?>" />
 		<?php
@@ -44,6 +44,7 @@
 
 </table>
 
+<h2 class="subTitle2" style="color: white; font: 100000px"> Matches</h2>
 <table class="mainTable" border="1">
 	<tr>
 		<th>Winner</th>
