@@ -61,7 +61,7 @@ function connectDB()
     
     //For Sitegroiound server:
 //    $user = "aquigaza_fsutt";
-//    $pw = "fsuTableTennis1995";
+//    $pw = ""; //Secret
 //    $database = "db3fgdg5s5wgh9";
 // 	  $server = "localhost";
 

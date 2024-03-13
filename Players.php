@@ -68,7 +68,6 @@ include("Players/PlayersSQL.php");
 </script>
 	
 <div id="main_div_players" class="container">
-	<input type="hidden" id="master" value="<?=$master?>" />
 		<div class="row">
 			<div class="col-md-12 " id="main_table_div">
 				<?php include("Players/PlayersManager.php"); ?>
