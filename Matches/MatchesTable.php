@@ -13,7 +13,7 @@
 </select>
 </p>
 
-<h3 class="subTitle2" style="color: white; font: 100000px"> Add Matches</h3>
+<h3 class="subTitle2" style="color: white; font: 100000px"> Add New Match</h3>
 <table>
 		<input type="hidden" id="master" value="<?=$master?>" />
 		<?php

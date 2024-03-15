@@ -18,5 +18,5 @@
 
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	</head>
-	<body style=" background-color: #8A0E0E;">
+	<body style=" background-color: #7d0b1d;"> 
 		<?php include("Tabs.php"); ?>
