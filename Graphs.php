@@ -29,9 +29,9 @@ include("Players/PlayersSQL.php");
 	<p class="mainTitle"> Players performance</p>
 	<select id="playerId" onchange="graphHistory();">
 		<?php
-		$players = getAllPlayersOrderBy('last'); //Obtains all the clubs
+		$players = getAllPlayersOrderBy('name'); //Obtains all the clubs
 		foreach ($players as $row) {
-			echo "<option value='", $row[0], "' >", $row[2], ", ", $row[1], "</option>"; //Shows the 2 field of the dependency (Name)
+			echo "<option value='", $row[0], "' >", $row[1], ", ", $row[2], "</option>"; //Shows the 2 field of the dependency (Name)
 		}
 		?>
 	</select> <input type="button" value="See Graph" onclick="graphHistory();" />
