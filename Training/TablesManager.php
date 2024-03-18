@@ -42,7 +42,7 @@ if($action === 'clear'){
 
 
 //---------- Configure the Training table
-$players = getAllPlayers();
+$players = getAllPlayersOrderBy("last");
 $training_players = getTrainingPlayers(1);
 
 include("PlayersTable.php"); 
