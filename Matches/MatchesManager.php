@@ -75,11 +75,11 @@ $clubs = getClubs(); //Obtains all the clubs
 
 //---------- Configure the Players table
 if(empty($sel_club)){
-	$playersWin = getAllPlayers();
+	$playersWin  = getAllPlayersOrderBy("last");
 	$playersLos =  $playersWin;
 } else {
-	$playersWin  = getPlayersFromClub($sel_club);
-	$playersLos = getPlayersFromClub($sel_club);
+	$playersWin  = getAllPlayersOrderBy("last");
+	$playersLos = getAllPlayersOrderBy("last");
 }
 	
 $allowEdit = false;
