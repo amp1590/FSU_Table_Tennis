@@ -34,7 +34,7 @@ include("Players/PlayersSQL.php");
 			echo "<option value='", $row[0], "' >", $row[2], ", ", $row[1], "</option>"; //Shows the 2 field of the dependency (Name)
 		}
 		?>
-	</select> <input type="button" value="Graph me" onclick="graphHistory();" />
+	</select> <input type="button" value="See Graph" onclick="graphHistory();" />
 	<div id="main_table_div">
 	</div>
 	<div id="graph_div"> </div>
