@@ -56,8 +56,7 @@ function connectDB()
 //For local pc server
     $user = "root";
     $pw = "";
-    //$database = "aquigaza_fsutt";
-    $database = "rating_fsutt";
+    $database = "rating_fsutt"; // The .sql file inside DB folder - import that database in PHPMyAdmin
     $server="localhost"; // This is for the server
     
     //For Sitegroiound server:
