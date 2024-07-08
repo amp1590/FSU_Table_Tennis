@@ -56,7 +56,8 @@ function connectDB()
 //For local pc server
     $user = "root";
     $pw = "";
-    $database = "aquigaza_fsutt";
+    //$database = "aquigaza_fsutt";
+    $database = "rating_fsutt";
     $server="localhost"; // This is for the server
     
     //For Sitegroiound server:
