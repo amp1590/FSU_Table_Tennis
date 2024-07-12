@@ -55,19 +55,24 @@ function getPlayersFromClub($idclub){
 //Adds a new player 
 function addPlayer($name, $last, $rating, $usatt, $idclub, $date, $email){
     $query = "INSERT INTO players
-	(`name`, `last`, `rating`, `usatt_rat`, `fk_club`, `startdate`, `email`)
+	(`name`, `last`, `rating`, `usatt_rat`, `fk_club`, `startdate`, `email`, `old_rating`, `rating_date`)
 	VALUES	('".escapeString($name)."','".escapeString($last)."','".escapeString($rating)."',".escapeString($usatt).
-			",".escapeString($idclub).",'".escapeString($date)."','".escapeString($email)."')";
+			",".escapeString($idclub).",'".escapeString($date)."','".escapeString($email)."', '".escapeString($rating)."',
+			'".escapeString($date)."')";
     $resource = runQuery($query);
 }
 
-function updatePlayer($idPlayer, $name, $last, $rating, $usatt, $club, $start,$email){
+function updatePlayer($idPlayer, $name, $last, $rating, $usatt, $club, $start, $email){
     $query = "UPDATE players SET
         name='".escapeString($name)."', 
         last='".escapeString($last)."',
         rating='".escapeString($rating)."',
         usatt_rat='".escapeString($usatt)."',
-		email='".escapeString($email)."'";
+		startdate='".escapeString($start)."',
+		email='".escapeString($email)."',
+		old_rating ='".escapeString($rating)."',
+		rating_date='".escapeString($start)."'";
+		
 
 	if($start != null){
         $query = $query.", startdate='".escapeString($start)."' ";
@@ -78,9 +83,12 @@ function updatePlayer($idPlayer, $name, $last, $rating, $usatt, $club, $start,$e
     $resource = runQuery($query);
 }
 
-function updateRating($id_play, $new_rat){
+function updateRating($id_play, $new_rat, $old_rat, $match_date){
     $query = "UPDATE players SET
-        rating='".escapeString($new_rat)."' WHERE id_player=".escapeString($id_play);
+        rating='" . escapeString($new_rat) . "',
+        old_rating='" . escapeString($old_rat) . "',
+		rating_date='" . escapeString($match_date) . "'
+        WHERE id_player=" . escapeString($id_play);
 
     $resource = runQuery($query);
 

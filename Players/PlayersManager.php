@@ -28,7 +28,7 @@ if( ($action == 'add') || ($action == 'update') ){
 }
 
 if($action == 'add'){    
-	addPlayer($name, $last, $rating, $usatt, $id_club, $date,$email);
+	addPlayer($name, $last, $rating, $usatt, $id_club, $date, $email);
 	$result = "New player added successfully";
 	echo($result);
 }
@@ -43,7 +43,7 @@ if($action == 'remove'){
 
 if($action == 'update'){
 	$idPlayer= $_REQUEST["id_play"]; 
-	updatePlayer($idPlayer, $name, $last, $rating, $usatt, $id_club, null,$email);
+	updatePlayer($idPlayer, $name, $last, $rating, $usatt, $id_club, $date, $email);
 }
 
 //---------- Configure the Clubs table
