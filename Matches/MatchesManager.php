@@ -24,42 +24,55 @@ if( ($action == 'add') || ($action == 'update') ){
 	$id_lost = $_REQUEST["id_lost"];
 }
 
-//Algorithm for Rating calculation
+/* Algorithm for Rating calculation */
 if($action == 'add'){   
 
+	// Get the two players info who won and who lost
 	$play_won = getPlayer($id_won);
 	$play_lost = getPlayer($id_lost);
+
+	/* ## Calculate the value "add_rat" to be added or subtrated from the rating of two players
+	on the basis of the difference of players skill level according to USATT chart ## */
 
 	$match_date = date("Y-m-d"); 
 	$rating_date = $play_won[0][10];
 
-	if($match_date == $rating_date){ //If same date, then the old(initial) rating of that date should be counted
-		$winner_rating = $play_won[0][9];
-		$loser_rating = $play_lost[0][9];
-	}else{ //If different date, then the new rating of the previous date
-		$winner_rating = $play_won[0][3];
-		$loser_rating = $play_lost[0][3];
+	if($match_date == $rating_date){ //If same date, then the initial rating of that date should be counted for difference calculation
+		$winner_initial_rating = $play_won[0][9];
+		$loser_initial_rating = $play_lost[0][9];
+	}else{ //If different date, then the new rating of the previous date is the initial rating for difference calculation
+		$winner_initial_rating = $play_won[0][3];
+		$loser_initial_rating = $play_lost[0][3];
 	}
 
-	// Difference in rating
-	$dif_rating =  $winner_rating - $loser_rating;
+	$dif_rating =  $winner_initial_rating - $loser_initial_rating; // Difference in initial rating of two players
 
-	$rat_row = getRatingFromDiff(abs($dif_rating));
+	$rat_row = getRatingFromDiff(abs($dif_rating)); // Fetch the info of the difference from the "rating" table
 
-	if($dif_rating > 0){//Expected
-		$add_rat = $rat_row[0][3];
+	//Calculate how much to be added or subtracted from the rating according to expected or upset 
+
+	if($dif_rating > 0){
+		$add_rat = $rat_row[0][3]; //Expected
 	}else{
-		$add_rat = $rat_row[0][4];
+		$add_rat = $rat_row[0][4]; //Upset
 	}
 
-	$new_won = $winner_rating + $add_rat;
-	$new_lost = $loser_rating - $add_rat;
+	/* ## ## */
 
-	addMatch($id_won , $id_lost, $winner_rating, $new_won, $loser_rating, $new_lost, $match_date);
+    /* $$ Add/subtract the value "add_rat" to the current rating of the respective players $$ */ 
+	$winner_current_rating = $play_won[0][3]; 
+	$loser_current_rating = $play_lost[0][3];
+
+	$winner_current_rating = $winner_current_rating + $add_rat;
+	$loser_current_rating = $loser_current_rating - $add_rat;
+
+	/* $$ $$ */
+
+	addMatch($id_won , $id_lost, $winner_initial_rating, $winner_current_rating, $loser_initial_rating, $loser_current_rating, $match_date);
 
 	//Updating players ratings
-	updateRating($id_won, $new_won, $winner_rating, $match_date);
-	updateRating($id_lost, $new_lost, $loser_rating, $match_date);
+	updateRating($id_won, $winner_current_rating, $winner_initial_rating, $match_date);
+	updateRating($id_lost, $loser_current_rating, $loser_initial_rating, $match_date);
 
 
 	$result = "New match added successfully <br>";
