@@ -1,6 +1,6 @@
 # FSU_Table_Tennis
 Requirements:
-* install XAMPP>=8.1 to get the required versions of PHP(8.1), Apache, and MySQL.
+* install XAMPP>=8.1 to get the required versions of PHP(8.1), Apache, and MySQL(8).
 
 Running the code on your local machine:
 1. Download the code and copy the respiratory inside "htdocs" if you are using XAMPP.
