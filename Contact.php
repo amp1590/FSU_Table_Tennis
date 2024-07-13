@@ -49,12 +49,12 @@ include("Header.php");
 
 				<h style="position:relative;top:40px;left:40px;font-family:'Proxima Nova', sans-serif;font-size:20px;color:#2A3FAC"><b>Admin</b></h>
 				<p style="position:relative;top:40px;left:60px;line-height:30px;width:80%;">
-				    <b>Willy Leparulo - Head Coach (Email: fsutabletennis@yahoo.com)</b> <span style=color:darkslategrey;> - A true table tennis legend who founded the club in 1998 as a grad student and has been passionately running it for 25 years! Curious about your rating? Contact Willy to register and join our legacy!</span> <br>
+				    <b>Willy Leparulo - Head Coach (Email: fsutabletennis@yahoo.com)</b> <span style=color:darkslategrey;> - A true table tennis legend who founded the club in 1998 as a grad student and has been passionately running it for the last 25 years! Curious about your rating? Contact Willy to register and join our legacy!</span> <br>
 					
 				</p>
 				<h style="position:relative;top:40px;left:40px;font-family:'Proxima Nova', sans-serif;font-size:20px;color:#2A3FAC"><b>Development & Maintenance</b></h>
 				<p style="position:relative;top:40px;left:60px;line-height:30px;width:80%;">
-					<b> Olmo Zavala (2012 - 2019) </b> <span style=color:darkslategrey;> - The original mastermind behind this website's creation, Olmo’s code is the foundation we all stand on. </span><br>
+					<b> Olmo Zavala Romero (2012 - 2019) </b> <span style=color:darkslategrey;> - The original mastermind behind this website's creation, Olmo’s code is the foundation we all stand on. </span><br>
 					<b> Arunima Mandal (2023 - Present; Email: am19cf@fsu.edu) </b> <span style=color:darkslategrey;> - Keeping the legacy alive and buzzing with new enhancements! </span><br>					
 				</p>
 				

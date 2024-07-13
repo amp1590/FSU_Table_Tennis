@@ -58,12 +58,7 @@ function connectDB()
     $pw = "";
     $database = "rating_fsutt"; // The .sql file inside DB folder - import that database in PHPMyAdmin
     $server="localhost"; // This is for the server
-    
-    //For Sitegroiound server:
-//    $user = "aquigaza_fsutt";
-//    $pw = ""; //Secret
-//    $database = "db3fgdg5s5wgh9";
-// 	  $server = "localhost";
+
 
 	$con = mysqli_connect($server,$user,$pw,$database);
 
