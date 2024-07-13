@@ -9,9 +9,11 @@ include("Players/PlayersSQL.php");
 <script type="text/javascript">
 	var fileName = "Players/PlayersManager.php";// Sets tHe file name to redirect tde AJAX calls
 
-	$("#tabplayers").addClass("active");
-	$("#tabmatches").removeClass("active");//Change tab active menu
-	$("#tabgraphs").removeClass("active");//Change tab active menu
+	$("#tabplayers").addClass("active"); //Change tab active menu
+	$("#tabtraining").removeClass("active"); 
+	$("#tabmatches").removeClass("active");
+	$("#tabgraphs").removeClass("active");
+	$("#tabcontact").removeClass("active");
 
 	function addField() {
 		name = $('#name').val();

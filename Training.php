@@ -8,9 +8,12 @@ include("Players/PlayersSQL.php");
 <script type="text/javascript">
 	var fileName = "Training/TablesManager.php";// Sets tde file name to redirect tde AJAX calls
 
-	$("#tabplayers").addClass("active");
-	$("#tabmatches").removeClass("active");//Change tab active menu
-	$("#tabgraphs").removeClass("active");//Change tab active menu
+	$("#tabplayers").removeClass("active");
+	$("#tabtraining").addClass("active"); //Change tab active menu
+	$("#tabmatches").removeClass("active");
+	$("#tabgraphs").removeClass("active");
+	$("#tabcontact").removeClass("active");
+	
 
 	function isTraining(id) {
 		console.log("Adding player:"+id);

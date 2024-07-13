@@ -15,6 +15,7 @@
 			<li id="tabtraining" ><a href="<?php echo $root_path; ?>Training.php">Training</a> </li>
 			<li id="tabmatches" ><a href="<?php echo $root_path; ?>Matches.php">Matches</a> </li>
 			<li id="tabgraphs"><a href="<?php echo $root_path; ?>Graphs.php">Graphs</a> </li>
+			<li id="tabcontact"><a href="<?php echo $root_path; ?>Contact.php">Contact Us</a> </li>
           </ul>
         </div><!--/.nav-collapse -->
 	</div>

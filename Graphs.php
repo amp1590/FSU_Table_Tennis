@@ -9,9 +9,11 @@ include("Players/PlayersSQL.php");
 <script type="text/javascript">
 	var fileName = "Graphs/GraphsManager.php";// Sets tde file name to redirect tde AJAX calls
 
-	$("#tabplayers").removeClass("active");//Change tab active menu
-	$("#tabmatches").removeClass("active");//Change tab active menu
-	$("#tabgraphs").addClass("active");//Change tab active menu
+	$("#tabplayers").removeClass("active"); 
+	$("#tabtraining").removeClass("active"); 
+	$("#tabmatches").removeClass("active"); 
+	$("#tabgraphs").addClass("active"); //Change tab active menu
+	$("#tabcontact").removeClass("active");
 
 	function graphHistory() {
 		id = $('#playerId').val();

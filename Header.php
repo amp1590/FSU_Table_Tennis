@@ -15,8 +15,10 @@
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
         <!-- End Bootstrap -->
+		
 
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	</head>
-	<body style=" background-color: #7d0b1d;"> 
+	<body style=" background-color: #7d0b1d; padding-top: 60px;"> 
+
 		<?php include("Tabs.php"); ?>

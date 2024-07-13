@@ -35,7 +35,7 @@
 		?>
 </table>
 
-<p class="mainTitle"> Players </p>
+
 <table class="mainTable">
 	<input type="hidden" id="master" value="<?=$master?>" />
 		<?php

@@ -4,9 +4,11 @@ include("Header.php");
 
 <script type="text/javascript">
 	var fileName = "Matches/MatchesManager.php";// Sets tde file name to redirect tde AJAX calls
-	$("#tabplayers").removeClass("active");//Change tab active menu
-	$("#tabmatches").addClass("active");//Change tab active menu
-	$("#tabgraphs").removeClass("active");//Change tab active menu
+	$("#tabplayers").removeClass("active"); 
+	$("#tabtraining").removeClass("active"); 
+	$("#tabmatches").addClass("active"); //Change tab active menu
+	$("#tabgraphs").removeClass("active");
+	$("#tabcontact").removeClass("active");
 
 	function addMatch(){ 
 		id_won = $('#winner').val();
@@ -42,7 +44,7 @@ include("Header.php");
 </script>
 
 <div id="main_div_matches" class="container">
-	<p class="mainTitle"> Club matches </p>
+	<!-- <p class="mainTitle"> Club matches </p> -->
 	<div id="main_table_div">
 		<?php include("Matches/MatchesManager.php"); ?>
 	</div>

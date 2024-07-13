@@ -1,4 +1,4 @@
-<p class="mainTitle"> Players </p>
+<!-- <p class="mainTitle"> Players </p>  -->
 <p class="subTitle"> Filter by Club:
 <?php
 	echo "<select id='filt_club' onchange='selectClub();'>\n";
