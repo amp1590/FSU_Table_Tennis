@@ -54,13 +54,11 @@ function getRowsFromResource($resource){
 function connectDB()
 {
 
-    $user = "aquigaza_fsutt";
-    $pw = "fsuTableTennis1995";
-    $database = "db3fgdg5s5wgh9";
+    $user = ""; //See from the siteground server in the DBadmin.php code
+    $pw = ""; //See from the siteground server in the DBadmin.php code
+    $database = ""; //See from the siteground server in the DBadmin.php code
 	$server = "localhost";
-    //$server="35.212.73.244"; // This is for the server
-	//$server = "181.224.136.219";
-//    $server="aquigaza.com";
+
 
 	$con = mysqli_connect($server,$user,$pw,$database);
 
