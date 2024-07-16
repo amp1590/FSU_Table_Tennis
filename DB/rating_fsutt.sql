@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 07, 2024 at 03:44 PM
--- Server version: 8.0.36-28
--- PHP Version: 7.4.33
+-- Generation Time: Jul 14, 2024 at 08:51 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db3fgdg5s5wgh9`
+-- Database: `rating_fsutt`
 --
 
 -- --------------------------------------------------------
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `clubs` (
-  `id_club` int UNSIGNED NOT NULL,
+  `id_club` int(10) UNSIGNED NOT NULL,
   `name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `clubs`
@@ -46,15 +46,15 @@ INSERT INTO `clubs` (`id_club`, `name`) VALUES
 --
 
 CREATE TABLE `games` (
-  `id_games` int UNSIGNED NOT NULL,
-  `won_old` int NOT NULL,
-  `lost_old` int NOT NULL,
-  `won_new` int NOT NULL,
-  `lost_new` int NOT NULL,
-  `fk_won` int NOT NULL,
-  `fk_lost` int NOT NULL,
+  `id_games` int(10) UNSIGNED NOT NULL,
+  `won_old` int(11) NOT NULL,
+  `lost_old` int(11) NOT NULL,
+  `won_new` int(11) NOT NULL,
+  `lost_new` int(11) NOT NULL,
+  `fk_won` int(11) NOT NULL,
+  `fk_lost` int(11) NOT NULL,
   `match_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `games`
@@ -3765,7 +3765,15 @@ INSERT INTO `games` (`id_games`, `won_old`, `lost_old`, `won_new`, `lost_new`, `
 (3701, 1686, 1656, 1693, 1649, 265, 273, '2024-04-28'),
 (3702, 1657, 1623, 1664, 1616, 267, 288, '2024-04-28'),
 (3703, 1649, 1664, 1659, 1654, 273, 267, '2024-04-28'),
-(3704, 1638, 1693, 1651, 1680, 275, 265, '2024-04-28');
+(3704, 1638, 1693, 1651, 1680, 275, 265, '2024-04-28'),
+(3705, 1100, 1000, 1104, 996, 292, 291, '2024-07-12'),
+(3706, 1100, 1000, 1104, 996, 292, 291, '2024-07-12'),
+(3707, 1000, 1100, 1020, 1080, 291, 292, '2024-07-12'),
+(3708, 1000, 1100, 1020, 1080, 291, 292, '2024-07-12'),
+(3709, 1000, 900, 1008, 892, 294, 293, '2024-07-12'),
+(3710, 1000, 900, 1016, 884, 294, 293, '2024-07-12'),
+(3711, 1000, 900, 1024, 876, 294, 293, '2024-07-12'),
+(3712, 900, 1000, 884, 1016, 293, 294, '2024-07-12');
 
 -- --------------------------------------------------------
 
@@ -3774,52 +3782,56 @@ INSERT INTO `games` (`id_games`, `won_old`, `lost_old`, `won_new`, `lost_new`, `
 --
 
 CREATE TABLE `players` (
-  `id_player` int NOT NULL,
+  `id_player` int(11) NOT NULL,
   `name` text NOT NULL,
   `last` text NOT NULL,
-  `rating` int NOT NULL,
-  `usatt_rat` int DEFAULT NULL,
-  `fk_club` int NOT NULL,
+  `rating` int(11) NOT NULL,
+  `usatt_rat` int(11) DEFAULT NULL,
+  `fk_club` int(11) NOT NULL,
   `startdate` date NOT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `training` tinyint(1) DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `training` tinyint(1) DEFAULT 0,
+  `old_rating` int(11) NOT NULL,
+  `rating_date` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `players`
 --
 
-INSERT INTO `players` (`id_player`, `name`, `last`, `rating`, `usatt_rat`, `fk_club`, `startdate`, `email`, `training`) VALUES
-(138, 'Willy', 'Leparulo', 2013, 2013, 21, '2014-06-28', 'fsutabletennis@yahoo.com', 0),
-(278, 'Sofiya', 'Knox', 1046, 0, 21, '2024-03-12', '', 0),
-(269, 'Monika', 'Pareek', 1950, 0, 21, '2024-03-12', '', 0),
-(283, 'Miguel ', 'Sierra', 1469, 0, 21, '2024-03-15', '', 0),
-(72, 'Shelly ', 'Huang', 1897, 1856, 21, '2013-06-18', 'xhuang459@gmail.com', 0),
-(224, 'Jon', 'The Penholder', 1859, 1823, 21, '2017-09-22', '', 0),
-(270, 'Bofan', 'Li', 1564, 0, 21, '2024-03-12', '', 0),
-(277, 'Chris', 'Ko', 1115, 0, 21, '2024-03-12', '', 0),
-(268, 'Jordan', 'Appelbaum', 1570, 1539, 21, '2024-03-12', '', 0),
-(272, 'Desiree', 'Smidt', 1201, 1192, 21, '2024-03-12', '', 0),
-(273, 'Tilden', 'Corbett', 1659, 1660, 21, '2024-03-12', '', 0),
-(274, 'Jacob', 'Mark', 1138, 0, 21, '2024-03-12', '', 0),
-(275, 'Jeff', 'Burns', 1651, 0, 21, '2024-03-12', '', 0),
-(276, 'Sayan', 'Bhadra', 1300, 0, 21, '2024-03-12', '', 0),
-(271, 'Myntmo', 'Tun', 1407, 1498, 21, '2024-03-12', '', 0),
-(234, 'Amid', 'Ardakani', 1682, 1651, 21, '2018-07-12', '', 0),
-(265, 'Mike ', 'Reff', 1680, 1735, 21, '2024-03-12', '', 0),
-(266, 'Logan ', 'Zimmerman', 1783, 1533, 21, '2024-03-12', '', 0),
-(280, 'Khalig ', 'Atakishiyev', 1040, 0, 21, '2024-03-12', '', 0),
-(279, 'Nicholas ', 'Tan', 1106, 0, 21, '2024-03-12', '', 0),
-(281, 'Shijie', 'Chen', 1265, 0, 21, '2024-03-12', '', 0),
-(282, 'Olmo', 'Zavala', 2300, 2280, 21, '2024-03-12', '', 0),
-(284, 'Charu', 'Gopal', 1069, 0, 21, '2024-03-15', '', 0),
-(285, 'Hunter', 'Duff', 1077, 0, 21, '2024-03-15', '', 0),
-(286, 'Andrew', 'Frasier', 1276, 0, 21, '2024-03-17', '', 0),
-(267, 'Logan', 'Carter', 1654, 1583, 21, '2024-03-12', '', 0),
-(263, 'Aru', 'Mandal', 1047, 0, 21, '2024-03-11', '', 0),
-(287, 'Mario', 'Zeron', 1005, 0, 21, '2024-03-17', '', 0),
-(288, 'Marianella', 'Melendez', 1616, 0, 21, '2024-03-19', '', 0),
-(289, 'Theo', 'Yang', 1481, 0, 21, '2024-03-23', '', 0);
+INSERT INTO `players` (`id_player`, `name`, `last`, `rating`, `usatt_rat`, `fk_club`, `startdate`, `email`, `training`, `old_rating`, `rating_date`) VALUES
+(138, 'Willy', 'Leparulo', 2013, 2013, 21, '2014-06-28', 'fsutabletennis@yahoo.com', 0, 2013, '2024-07-13'),
+(278, 'Sofiya', 'Knox', 1046, 0, 21, '2024-03-12', '', 0, 1046, '2024-07-13'),
+(269, 'Monika', 'Pareek', 1950, 0, 21, '2024-03-12', '', 0, 1950, '2024-07-13'),
+(283, 'Miguel ', 'Sierra', 1469, 0, 21, '2024-03-15', '', 0, 1469, '2024-07-13'),
+(72, 'Shelly ', 'Huang', 1897, 1856, 21, '2013-06-18', 'xhuang459@gmail.com', 0, 1897, '2024-07-13'),
+(224, 'Jon', 'The Penholder', 1859, 1823, 21, '2017-09-22', '', 0, 1859, '2024-07-13'),
+(270, 'Bofan', 'Li', 1564, 0, 21, '2024-03-12', '', 0, 1564, '2024-07-13'),
+(277, 'Chris', 'Ko', 1115, 0, 21, '2024-03-12', '', 0, 1115, '2024-07-13'),
+(268, 'Jordan', 'Appelbaum', 1570, 1539, 21, '2024-03-12', '', 0, 1570, '2024-07-13'),
+(272, 'Desiree', 'Smidt', 1201, 1192, 21, '2024-03-12', '', 0, 1201, '2024-07-13'),
+(273, 'Tilden', 'Corbett', 1659, 1660, 21, '2024-03-12', '', 0, 1659, '2024-07-13'),
+(274, 'Jacob', 'Mark', 1138, 0, 21, '2024-03-12', '', 0, 1138, '2024-07-13'),
+(275, 'Jeff', 'Burns', 1651, 0, 21, '2024-03-12', '', 0, 1651, '2024-07-13'),
+(276, 'Sayan', 'Bhadra', 1300, 0, 21, '2024-03-12', '', 0, 1300, '2024-07-13'),
+(271, 'Myntmo', 'Tun', 1407, 1498, 21, '2024-03-12', '', 0, 1407, '2024-07-13'),
+(234, 'Amid', 'Ardakani', 1682, 1651, 21, '2018-07-12', '', 0, 1682, '2024-07-13'),
+(265, 'Mike ', 'Reff', 1680, 1735, 21, '2024-03-12', '', 0, 1680, '2024-07-13'),
+(266, 'Logan ', 'Zimmerman', 1783, 1533, 21, '2024-03-12', '', 0, 1783, '2024-07-13'),
+(280, 'Khalig ', 'Atakishiyev', 1040, 0, 21, '2024-03-12', '', 0, 1040, '2024-07-13'),
+(279, 'Nicholas ', 'Tan', 1106, 0, 21, '2024-03-12', '', 0, 1106, '2024-07-13'),
+(281, 'Shijie', 'Chen', 1265, 0, 21, '2024-03-12', '', 0, 1265, '2024-07-13'),
+(282, 'Olmo', 'Zavala', 2300, 2280, 21, '2024-03-12', '', 0, 2300, '2024-07-13'),
+(284, 'Charu', 'Gopal', 1069, 0, 21, '2024-03-15', '', 0, 1069, '2024-07-13'),
+(285, 'Hunter', 'Duff', 1077, 0, 21, '2024-03-15', '', 0, 1077, '2024-07-13'),
+(286, 'Andrew', 'Frasier', 1276, 0, 21, '2024-03-17', '', 0, 1276, '2024-07-13'),
+(267, 'Logan', 'Carter', 1654, 1583, 21, '2024-03-12', '', 0, 1654, '2024-07-13'),
+(263, 'Aru', 'Mandal', 1047, 0, 21, '2024-03-11', '', 0, 1047, '2024-07-13'),
+(287, 'Mario', 'Zeron', 1005, 0, 21, '2024-03-17', '', 0, 1005, '2024-07-13'),
+(288, 'Marianella', 'Melendez', 1616, 0, 21, '2024-03-19', '', 0, 1616, '2024-07-13'),
+(289, 'Theo', 'Yang', 1481, 0, 21, '2024-03-23', '', 0, 1481, '2024-07-13'),
+(300, 't2', 't2_', 1000, 0, 21, '2024-07-14', '', 0, 1000, '2024-07-14'),
+(299, 't1', 't1_', 900, 0, 21, '2024-07-14', '', 0, 900, '2024-07-14');
 
 -- --------------------------------------------------------
 
@@ -3828,12 +3840,12 @@ INSERT INTO `players` (`id_player`, `name`, `last`, `rating`, `usatt_rat`, `fk_c
 --
 
 CREATE TABLE `rating` (
-  `id_rating` int UNSIGNED NOT NULL,
-  `dif_from` int NOT NULL,
-  `dif_to` int NOT NULL,
-  `expected` int NOT NULL,
-  `upset` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_rating` int(10) UNSIGNED NOT NULL,
+  `dif_from` int(11) NOT NULL,
+  `dif_to` int(11) NOT NULL,
+  `expected` int(11) NOT NULL,
+  `upset` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `rating`
@@ -3890,25 +3902,25 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT for table `clubs`
 --
 ALTER TABLE `clubs`
-  MODIFY `id_club` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_club` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `games`
 --
 ALTER TABLE `games`
-  MODIFY `id_games` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3705;
+  MODIFY `id_games` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3719;
 
 --
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `id_player` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=291;
+  MODIFY `id_player` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
 
 --
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id_rating` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_rating` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
