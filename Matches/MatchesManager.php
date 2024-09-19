@@ -37,6 +37,9 @@ if($action == 'add'){
 	$match_date = date("Y-m-d"); 
 	$rating_date = $play_won[0][10];
 
+	$winner_current_rating = $play_won[0][3]; 
+	$loser_current_rating = $play_lost[0][3];
+
 	if($match_date == $rating_date){ //If same date, then the initial rating of that date should be counted for difference calculation
 		$winner_initial_rating = $play_won[0][9];
 		$loser_initial_rating = $play_lost[0][9];
@@ -45,7 +48,8 @@ if($action == 'add'){
 		$loser_initial_rating = $play_lost[0][3];
 	}
 
-	$dif_rating =  $winner_initial_rating - $loser_initial_rating; // Difference in initial rating of two players
+
+	$dif_rating =  $winner_initial_rating - $loser_initial_rating; // Difference in initial rating of two players on the same day
 
 	$rat_row = getRatingFromDiff(abs($dif_rating)); // Fetch the info of the difference from the "rating" table
 
@@ -59,10 +63,7 @@ if($action == 'add'){
 
 	/* ## ## */
 
-    /* $$ Add/subtract the value "add_rat" to the current rating of the respective players $$ */ 
-	$winner_current_rating = $play_won[0][3]; 
-	$loser_current_rating = $play_lost[0][3];
-
+    /* $$ Add/Subtract the value "add_rat" to the current rating of the respective players $$ */ 
 	$winner_current_rating = $winner_current_rating + $add_rat;
 	$loser_current_rating = $loser_current_rating - $add_rat;
 

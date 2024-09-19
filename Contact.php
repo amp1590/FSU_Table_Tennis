@@ -54,8 +54,8 @@ include("Header.php");
 				</p>
 				<h style="position:relative;top:40px;left:40px;font-family:'Proxima Nova', sans-serif;font-size:20px;color:#2A3FAC"><b>Development & Maintenance</b></h>
 				<p style="position:relative;top:40px;left:60px;line-height:30px;width:80%;">
-					<b> Olmo Zavala Romero (2014 - 2019) </b> <span style=color:darkslategrey;> - The original mastermind behind this website's creation, Olmo’s code is the foundation we all stand on. </span><br>
-					<b> Arunima Mandal (2023 - Present; Email: am19cf@fsu.edu) </b> <span style=color:darkslategrey;> - Keeping the legacy alive and buzzing with new enhancements! </span><br>					
+					<b> Olmo Zavala (2014 - 2023) </b> <span style=color:darkslategrey;> - The original mastermind behind this website's creation, Olmo’s code is the foundation we all stand on!</span><br>
+					<b> Arunima Mandal (2023 - Present; Email: arunima1590@gmail.com) </b> <span style=color:darkslategrey;> - Keeping the legacy alive and buzzing with new enhancements! </span><br>					
 				</p>
 				
 				
